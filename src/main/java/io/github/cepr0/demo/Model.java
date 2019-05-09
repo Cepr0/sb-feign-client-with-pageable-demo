@@ -1,5 +1,6 @@
 package io.github.cepr0.demo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Tolerate;
@@ -13,8 +14,13 @@ import javax.persistence.Version;
 @Entity
 class Model {
 
-	@Id private Integer id;
-	@Version private Integer version;
+	@Id
+	private Integer id;
+
+	@JsonIgnore
+	@Version
+	private Integer version;
+
 	private String text;
 
 	@Tolerate
